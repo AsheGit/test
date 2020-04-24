@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="8c9b2b15-4a1b-41b6-a960-ab7b0726185e" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="jenkinstestFlow" doc:id="ef7c6aa0-e2b1-44a0-ade7-97405641890e" >
+		<http:listener doc:name="Listener" doc:id="279f571a-d3aa-45f0-b484-26194d339ff3" path="/jenkins" config-ref="HTTP_Listener_config"/>
+		<set-payload value="Hello Jenkins!" doc:name="Set Payload" doc:id="b11e0144-e3da-42c5-a1f8-46128407aec9" />
+	</flow>
+</mule>
